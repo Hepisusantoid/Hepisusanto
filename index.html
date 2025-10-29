@@ -138,7 +138,6 @@
             margin: .4rem 0 0 0;
         }
 
-        /* subtle glow line */
         .glow-line {
             position: absolute;
             inset: 0;
@@ -269,7 +268,6 @@
             overflow: hidden;
         }
 
-        /* ===== small ">" arrow ===== */
         .arrow {
             position: absolute;
             right: .8rem;
@@ -281,7 +279,6 @@
             text-shadow: 0 0 10px rgba(0,255,153,0.9), 0 0 20px rgba(0,255,153,0.4);
         }
 
-        /* ===== Hover / active states ===== */
         .menu-card:active,
         .menu-card:focus,
         .menu-card:hover {
@@ -290,6 +287,212 @@
                 0 0 25px rgba(0,255,153,0.4),
                 0 0 90px rgba(0,255,153,0.25);
             border-color: rgba(0,255,153,0.6);
+        }
+
+        /* ===== Mindset Card ===== */
+        .mindset-wrapper {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .mindset-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: 0 .25rem;
+        }
+
+        .mindset-title {
+            font-size: .8rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .mindset-title .dot {
+            width: .4rem;
+            height: .4rem;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent), 0 0 30px var(--accent);
+        }
+
+        .mindset-card {
+            position: relative;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.9),
+                0 0 30px rgba(0,255,153,0.15),
+                0 0 120px rgba(0,255,153,0.07);
+            padding: 1rem 1rem 1rem;
+            color: var(--text-main);
+            overflow: hidden;
+        }
+
+        .mindset-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            border-radius: inherit;
+            background: radial-gradient(circle at 20% 20%, rgba(0,255,153,0.18) 0%, rgba(0,0,0,0) 70%);
+            mix-blend-mode: screen;
+            opacity: .4;
+        }
+
+        .mindset-header-row {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            margin-bottom: .75rem;
+        }
+
+        .mindset-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-lg);
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(0,255,153,0.4);
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.9),
+                0 0 12px rgba(0,255,153,0.4),
+                0 0 40px rgba(0,255,153,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(0,255,153,0.9), 0 0 20px rgba(0,255,153,0.6);
+            font-size: .9rem;
+            min-width: 40px;
+        }
+
+        .mindset-texts {
+            min-width: 0;
+        }
+
+        .mindset-headline {
+            font-size: .9rem;
+            font-weight: 500;
+            line-height: 1.3;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .mindset-subline {
+            font-size: .7rem;
+            line-height: 1.3;
+            color: var(--text-dim);
+            margin: .2rem 0 0 0;
+        }
+
+        /* timeline / comparison box */
+        .mindset-compare {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: .75rem;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(0,255,153,0.25);
+            border-radius: var(--radius-lg);
+            padding: .8rem .9rem;
+            position: relative;
+            margin-bottom: .75rem;
+        }
+
+        .compare-col h3 {
+            margin: 0;
+            font-size: .8rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(0,255,153,0.9), 0 0 20px rgba(0,255,153,0.4);
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+        }
+
+        .compare-col .label {
+            font-size: .65rem;
+            color: var(--text-dim);
+            line-height: 1.3;
+            margin-top: .4rem;
+        }
+
+        .compare-arrow {
+            font-size: .75rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.2;
+            text-shadow: 0 0 10px rgba(0,255,153,0.9), 0 0 20px rgba(0,255,153,0.4);
+            min-width: 50px;
+        }
+
+        .compare-small {
+            font-size: .6rem;
+            color: var(--text-dim);
+            line-height: 1.2;
+        }
+
+        /* explanation text */
+        .mindset-explain {
+            font-size: .7rem;
+            line-height: 1.5;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .mindset-explain strong {
+            color: var(--accent);
+            font-weight: 500;
+            text-shadow: 0 0 10px rgba(0,255,153,0.9), 0 0 20px rgba(0,255,153,0.4);
+        }
+
+        /* fake progress bar / growth bar */
+        .growth-bar-wrap {
+            margin-top: .9rem;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(0,255,153,0.25);
+            border-radius: var(--radius-full);
+            padding: .5rem .75rem;
+        }
+
+        .growth-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: .6rem;
+            line-height: 1.2;
+            color: var(--text-dim);
+            margin-bottom: .4rem;
+        }
+
+        .growth-bar-track {
+            position: relative;
+            width: 100%;
+            height: 6px;
+            border-radius: var(--radius-full);
+            background: rgba(0,255,153,0.1);
+            overflow: hidden;
+        }
+
+        .growth-bar-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 90%;
+            /* visual "wow jadi besar" */
+            background: radial-gradient(circle at 0% 0%, rgba(0,255,153,0.9) 0%, rgba(0,255,153,0.2) 60%);
+            box-shadow:
+                0 0 20px rgba(0,255,153,0.8),
+                0 0 40px rgba(0,255,153,0.4),
+                0 0 80px rgba(0,255,153,0.2);
         }
 
         /* ===== Footer note ===== */
@@ -318,6 +521,14 @@
             }
             .grid-menu {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .mindset-compare {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .compare-arrow {
+                order: 2;
             }
         }
     </style>
@@ -350,7 +561,7 @@
             <div class="glow-line"></div>
         </section>
 
-        <!-- SECTION TITLE -->
+        <!-- SECTION TITLE: MENU -->
         <div class="section-head">
             <div class="section-title">
                 <div class="dot"></div>
@@ -403,7 +614,7 @@
                 </div>
             </a>
 
-            <!-- 4. Portofolio Asset -->
+            <!-- 4. Portofolio Aset -->
             <a class="menu-card" href="#">
                 <div class="icon-wrap">
                     <i class="fa-solid fa-chart-pie"></i>
@@ -446,6 +657,78 @@
             </a>
 
         </section>
+
+
+        <!-- MINDSET INVESTASI SECTION -->
+        <section class="mindset-wrapper">
+            <div class="mindset-head">
+                <div class="mindset-title">
+                    <div class="dot"></div>
+                    <span>Mindset Investasi Jangka Panjang</span>
+                </div>
+            </div>
+
+            <div class="mindset-card">
+                <div class="mindset-header-row">
+                    <div class="mindset-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div class="mindset-texts">
+                        <p class="mindset-headline">
+                            Gaya hidup vs Aset produktif
+                        </p>
+                        <p class="mindset-subline">
+                            Beli barang konsumsi sekarang vs biarkan uangnya tumbuh 10 tahun.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- comparison -->
+                <div class="mindset-compare">
+                    <div class="compare-col">
+                        <h3>Sekarang</h3>
+                        <div class="label">
+                            Motor CRF ≈ <strong>Rp37.000.000</strong><br>
+                            (uang langsung habis untuk lifestyle)
+                        </div>
+                    </div>
+
+                    <div class="compare-arrow">
+                        <div><i class="fa-solid fa-arrow-right-long"></i></div>
+                        <div class="compare-small">CAGR 30% / tahun<br>10 tahun</div>
+                    </div>
+
+                    <div class="compare-col">
+                        <h3>10 Tahun Lagi</h3>
+                        <div class="label">
+                            Nilai jadi ± <strong>Rp510.000.000</strong><br>
+                            Level mobil Innova / modal usaha besar
+                        </div>
+                    </div>
+                </div>
+
+                <!-- explanation -->
+                <div class="mindset-explain">
+                    Intinya: <strong>bukan anti motor</strong>. Tapi sebelum beli gaya hidup,
+                    tanya diri sendiri: <strong>“Kalau uang Rp37.000.000 ini aku taruh ke aset yang bisa tumbuh
+                    ±30% per tahun, aku lagi ngorbanin mobil Innova masa depan cuma buat gaya hidup hari ini?”</strong>
+                    <br><br>
+                    Fokusnya adalah jadi pemilik aset dulu, baru pamer barang konsumsi belakangan.
+                </div>
+
+                <!-- growth bar visual -->
+                <div class="growth-bar-wrap">
+                    <div class="growth-label-row">
+                        <div>Rp37.000.000 (Start)</div>
+                        <div>±Rp510.000.000 (10 thn)</div>
+                    </div>
+                    <div class="growth-bar-track">
+                        <div class="growth-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- FOOTER NOTE -->
         <div class="footer-note">
