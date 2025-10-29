@@ -58,7 +58,7 @@
             overflow-x: hidden;
         }
 
-        /* Grid overlay futuristic */
+        /* Overlay garis grid hijau futuristik */
         body::before {
             content: "";
             position: absolute;
@@ -90,9 +90,7 @@
             z-index: 1;
         }
 
-        /* =====================
-           SECTION HEADER
-        ======================*/
+        /* HEADER ATAS */
         .mindset-header-top {
             display: flex;
             align-items: flex-start;
@@ -136,13 +134,11 @@
                 0 0 60px rgba(0,255,153,0.15);
         }
 
-        /* =====================
-           OUTER SHELL (NEON BORDER)
-        ======================*/
+        /* SHELL DENGAN NEON BORDER */
         .mindset-shell {
             position: relative;
             border-radius: var(--radius-xl);
-            padding: 1px;
+            padding: 1px; /* bikin border neon */
             background: radial-gradient(circle at 10% 0%,
                          var(--panel-bg-outer) 0%,
                          rgba(0,0,0,0) 60%);
@@ -178,9 +174,7 @@
             opacity: .35;
         }
 
-        /* =====================
-           TOP MESSAGE ROW
-        ======================*/
+        /* ROW ATAS (IKON + TEKS) */
         .mindset-top-row {
             position: relative;
             z-index: 1;
@@ -237,9 +231,7 @@
             letter-spacing: -0.02em;
         }
 
-        /* =====================
-           SNAPSHOT GRID (SEKARANG VS MASA DEPAN)
-        ======================*/
+        /* GRID PERBANDINGAN (SEKARANG VS 10 TAHUN) */
         .snapshot-grid {
             position: relative;
             z-index: 1;
@@ -306,7 +298,7 @@
                 0 0 20px rgba(0,255,153,0.5);
         }
 
-        /* icon visual barang */
+        /* Ikon barang (motor sekarang, mobil nanti) */
         .snapshot-icon {
             width: 42px;
             height: 42px;
@@ -329,7 +321,6 @@
             font-size: 1rem;
         }
 
-        /* angka utama */
         .snapshot-money {
             font-size: .9rem;
             font-weight: 600;
@@ -352,7 +343,6 @@
                 0 0 25px rgba(0,255,153,0.4);
         }
 
-        /* panah tengah */
         .snapshot-arrow-block {
             text-align: center;
             font-size: .8rem;
@@ -373,9 +363,7 @@
             line-height: 1.3;
         }
 
-        /* =====================
-           MATH BOX / GROWTH
-        ======================*/
+        /* KOTAK PERHITUNGAN / GROWTH */
         .math-card {
             background: rgba(0,0,0,0.45);
             border: 1px solid var(--border-soft);
@@ -475,9 +463,7 @@
                 0 0 90px rgba(0,255,153,0.2);
         }
 
-        /* =====================
-           MESSAGE / MINDSET
-        ======================*/
+        /* PESAN AKHIR / MINDSET */
         .mindset-message {
             position: relative;
             z-index: 1;
@@ -512,7 +498,6 @@
             font-weight: 500;
         }
 
-        /* small footer note */
         .footer-note {
             text-align: center;
             font-size: .65rem;
@@ -535,7 +520,7 @@
 
     <main class="wrapper-mindset">
 
-        <!-- TITLE / SECTION HEADER -->
+        <!-- HEADER JUDUL -->
         <header class="mindset-header-top">
             <div class="mindset-dot"></div>
             <div class="mindset-head-texts">
@@ -544,11 +529,11 @@
             </div>
         </header>
 
-        <!-- MAIN CONTENT SHELL -->
+        <!-- KONTEN UTAMA -->
         <section class="mindset-shell">
             <div class="mindset-card">
 
-                <!-- TOP ROW -->
+                <!-- ROW ATAS -->
                 <div class="mindset-top-row">
                     <div class="mindset-icon-main">
                         <i class="fa-solid fa-shield-dollar"></i>
@@ -564,10 +549,10 @@
                     </div>
                 </div>
 
-                <!-- SNAPSHOT GRID -->
+                <!-- PERBANDINGAN SEKARANG VS NANTI -->
                 <div class="snapshot-grid">
 
-                    <!-- KIRI: SEKARANG -->
+                    <!-- SEKARANG -->
                     <div class="snapshot-card">
                         <div class="snapshot-top-row">
                             <div class="snapshot-label">
@@ -576,7 +561,6 @@
                             </div>
 
                             <div class="snapshot-icon">
-                                <!-- motor / gaya hidup -->
                                 <i class="fa-solid fa-motorcycle"></i>
                             </div>
                         </div>
@@ -590,7 +574,7 @@
                         </div>
                     </div>
 
-                    <!-- PANAH / CAGR INFO -->
+                    <!-- PANAH / CAGR -->
                     <div class="snapshot-arrow-block">
                         <div><i class="fa-solid fa-arrow-right-long"></i></div>
                         <span>
@@ -599,7 +583,7 @@
                         </span>
                     </div>
 
-                    <!-- KANAN: MASA DEPAN -->
+                    <!-- 10 TAHUN LAGI -->
                     <div class="snapshot-card">
                         <div class="snapshot-top-row">
                             <div class="snapshot-label">
@@ -608,7 +592,6 @@
                             </div>
 
                             <div class="snapshot-icon">
-                                <!-- mobil / aset besar -->
                                 <i class="fa-solid fa-car-side"></i>
                             </div>
                         </div>
@@ -624,7 +607,7 @@
 
                 </div>
 
-                <!-- MATH / GROWTH -->
+                <!-- PERHITUNGAN GROWTH -->
                 <div class="math-card">
                     <div class="math-head">
                         <i class="fa-solid fa-calculator"></i>
@@ -652,7 +635,7 @@
                     </div>
                 </div>
 
-                <!-- MESSAGE / FILOSOFI -->
+                <!-- PESAN MINDSET -->
                 <div class="mindset-message">
                     Bukan berarti <strong>nggak boleh punya motor keren</strong>.
                     Tapi mindset orang kaya itu urutannya beda:
