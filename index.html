@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hepi Susanto - Dashboard Personal</title>
+
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icon Pack (Font Awesome 6 Free CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-main: radial-gradient(circle at 20% 20%, rgba(0,255,140,0.18) 0%, rgba(0,0,0,0) 60%), radial-gradient(circle at 80% 30%, rgba(0,150,80,0.15) 0%, rgba(0,0,0,0) 60%), linear-gradient(160deg,#000000 0%,#001007 40%,#000000 100%);
+            --glass-bg: rgba(15, 30, 20, 0.45);
+            --glass-border: rgba(0, 255, 170, 0.3);
+            --text-main: #eafff4;
+            --text-dim: #6ddfa5;
+            --accent: #00ff99;
+            --accent-soft: rgba(0,255,153,0.12);
+            --radius-xl: 1.25rem;
+            --radius-lg: 1rem;
+            --radius-full: 999px;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--bg-main);
+            background-color: #000;
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 430px;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        /* ===== Profile Card ===== */
+        .profile-card {
+            position: relative;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--glass-border);
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.9),
+                0 0 30px rgba(0,255,153,0.15),
+                0 0 120px rgba(0,255,153,0.07);
+            padding: 1.25rem 1.25rem 1.25rem 1rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+        }
+
+        .avatar-ring {
+            position: relative;
+            width: 72px;
+            height: 72px;
+            border-radius: var(--radius-full);
+            background: radial-gradient(circle at 50% 30%, rgba(0,255,153,0.4) 0%, rgba(0,0,0,0) 70%);
+            padding: 2px;
+            box-shadow: 0 0 20px rgba(0,255,153,0.4);
+        }
+
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            border: 2px solid rgba(0,255,153,0.35);
+            background: #000;
+        }
+
+        .avatar-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+
+        .name-row {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            flex-wrap: wrap;
+        }
+
+        .name-row h1 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-main);
+            line-height: 1.3;
+            letter-spacing: -0.03em;
+        }
+
+        .badge {
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: .7rem;
+            line-height: 1.2;
+            font-weight: 500;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(0,255,153,0.4);
+            padding: .3rem .6rem;
+            white-space: nowrap;
+        }
+
+        .desc {
+            font-size: .8rem;
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--text-dim);
+            margin: .4rem 0 0 0;
+        }
+
+        /* subtle glow line */
+        .glow-line {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-xl);
+            pointer-events: none;
+            box-shadow:
+                0 0 50px rgba(0,255,153,0.2),
+                0 0 100px rgba(0,255,153,0.1),
+                0 0 160px rgba(0,255,153,0.07);
+        }
+
+        /* ===== Section title ===== */
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0 .25rem;
+        }
+
+        .section-title {
+            font-size: .8rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .section-title .dot {
+            width: .4rem;
+            height: .4rem;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent), 0 0 30px var(--accent);
+        }
+
+        /* ===== Grid menu ===== */
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(min(45%,160px),1fr));
+            gap: 1rem;
+        }
+
+        .menu-card {
+            position: relative;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(14px) saturate(180%);
+            -webkit-backdrop-filter: blur(14px) saturate(180%);
+            box-shadow:
+                0 16px 40px rgba(0,0,0,0.9),
+                0 0 20px rgba(0,255,153,0.12),
+                0 0 80px rgba(0,255,153,0.05);
+            padding: 1rem 1rem 1rem;
+            text-decoration: none;
+            color: var(--text-main);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: .8rem;
+            min-height: 84px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at 20% 20%, rgba(0,255,153,0.18) 0%, rgba(0,0,0,0) 70%);
+            mix-blend-mode: screen;
+            opacity: .4;
+        }
+
+        .icon-wrap {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            min-height: 44px;
+            border-radius: var(--radius-lg);
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(0,255,153,0.4);
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.9),
+                0 0 12px rgba(0,255,153,0.4),
+                0 0 40px rgba(0,255,153,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .icon-wrap i {
+            font-size: 1.1rem;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(0,255,153,0.9), 0 0 20px rgba(0,255,153,0.6);
+        }
+
+        .text-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            min-width: 0;
+        }
+
+        .text-block .title {
+            font-size: .9rem;
+            font-weight: 500;
+            line-height: 1.3;
+            color: var(--text-main);
+            margin: 0 0 .35rem 0;
+            letter-spacing: -0.03em;
+        }
+
+        .text-block .sub {
+            font-size: .7rem;
+            line-height: 1.2;
+            color: var(--text-dim);
+            margin: 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        /* ===== small ">" arrow ===== */
+        .arrow {
+            position: absolute;
+            right: .8rem;
+            bottom: .8rem;
+            font-size: .7rem;
+            line-height: 1;
+            color: var(--accent);
+            opacity: .8;
+            text-shadow: 0 0 10px rgba(0,255,153,0.9), 0 0 20px rgba(0,255,153,0.4);
+        }
+
+        /* ===== Hover / active states ===== */
+        .menu-card:active,
+        .menu-card:focus,
+        .menu-card:hover {
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.95),
+                0 0 25px rgba(0,255,153,0.4),
+                0 0 90px rgba(0,255,153,0.25);
+            border-color: rgba(0,255,153,0.6);
+        }
+
+        /* ===== Footer note ===== */
+        .footer-note {
+            text-align: center;
+            font-size: .65rem;
+            color: rgba(255,255,255,.35);
+            line-height: 1.4;
+        }
+
+        .footer-note span {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(0,255,153,0.9), 0 0 30px rgba(0,255,153,0.4);
+            font-weight: 500;
+        }
+
+        /* Responsive tweak for very small screens */
+        @media (max-width: 360px) {
+            .profile-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+            .profile-info {
+                align-items: center;
+            }
+            .grid-menu {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="wrapper">
+
+        <!-- PROFILE CARD -->
+        <section class="profile-card">
+            <div class="avatar-ring">
+                <div class="avatar-inner">
+                    <!-- Foto kamu -->
+                    <img src="img/profil1.png" alt="Foto Hepi Susanto">
+                </div>
+            </div>
+
+            <div class="profile-info">
+                <div class="name-row">
+                    <h1>Hepi Susanto</h1>
+                    <div class="badge">
+                        <i class="fa-solid fa-leaf" style="margin-right:4px;"></i> Petani
+                    </div>
+                </div>
+                <p class="desc">
+                    Seorang petani yang sambil belajar investasi dan membangun aset jangka panjang.
+                </p>
+            </div>
+
+            <div class="glow-line"></div>
+        </section>
+
+        <!-- SECTION TITLE -->
+        <div class="section-head">
+            <div class="section-title">
+                <div class="dot"></div>
+                <span>Menu Utama</span>
+            </div>
+        </div>
+
+        <!-- GRID MENU -->
+        <section class="grid-menu">
+
+            <!-- 1. Kalkulator Persentase -->
+            <a class="menu-card" href="#">
+                <div class="icon-wrap">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div class="text-block">
+                    <div class="title">Kalkulator Persentase</div>
+                    <div class="sub">Hitung % cepat & akurat</div>
+                </div>
+                <div class="arrow">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>
+
+            <!-- 2. Kalkulator Investasi -->
+            <a class="menu-card" href="#">
+                <div class="icon-wrap">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="text-block">
+                    <div class="title">Kalkulator Investasi</div>
+                    <div class="sub">Simulasi nilai masa depan</div>
+                </div>
+                <div class="arrow">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>
+
+            <!-- 3. Laporan Keuangan -->
+            <a class="menu-card" href="#">
+                <div class="icon-wrap">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+                <div class="text-block">
+                    <div class="title">Laporan Keuangan</div>
+                    <div class="sub">Catat pemasukan & beban</div>
+                </div>
+                <div class="arrow">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>
+
+            <!-- 4. Portofolio Asset -->
+            <a class="menu-card" href="#">
+                <div class="icon-wrap">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <div class="text-block">
+                    <div class="title">Portofolio Aset</div>
+                    <div class="sub">Bitcoin, saham, kas, dll</div>
+                </div>
+                <div class="arrow">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>
+
+            <!-- 5. Cashflow Quadran -->
+            <a class="menu-card" href="#">
+                <div class="icon-wrap">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div class="text-block">
+                    <div class="title">Cashflow Quadran</div>
+                    <div class="sub">E / S / B / I income mix</div>
+                </div>
+                <div class="arrow">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>
+
+            <!-- 6. Tabunganku -->
+            <a class="menu-card" href="#">
+                <div class="icon-wrap">
+                    <i class="fa-solid fa-piggy-bank"></i>
+                </div>
+                <div class="text-block">
+                    <div class="title">Tabunganku</div>
+                    <div class="sub">Saldo & perkembangan nabung</div>
+                </div>
+                <div class="arrow">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>
+
+        </section>
+
+        <!-- FOOTER NOTE -->
+        <div class="footer-note">
+            <div>Build wealth pelan-pelan, konsisten.</div>
+            <div><span>Hepi Susanto</span></div>
+        </div>
+
+    </main>
+
+</body>
+</html>
